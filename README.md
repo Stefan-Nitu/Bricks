@@ -1,67 +1,69 @@
-# 🚀 MAICA
+# 🧱 Bricks
 
-**Modular AI iOS Clean Architecture**
+**A Scalable Modular Architecture for AI-Driven iOS Development**
 
 ---
 
-## 🤔 Why MAICA?
+## 🤔 Why Bricks?
 
-MAICA is a straightforward, scalable architecture designed for iOS projects that harness AI (like Cursor or GPT) to generate code without sacrificing quality or maintainability. Much like MVVM, VIPER, or RIBs, MAICA provides a clean structure, but with AI-driven code generation in mind.
+Bricks is a pragmatic and scalable architecture built specifically for iOS teams that want to safely and effectively integrate AI-generated code into real-world projects. It's about structure, separation, and scale.
 
-MAICA stands for:
-- **M**odular
-- **A**I
-- **i**OS
-- **C**lean
-- **A**rchitecture
+Just like bricks in architecture, this system is:
+- **Modular** — each feature and service is isolated
+- **Composable** — modules plug together cleanly via protocols
+- **Replaceable** — implementations are swappable, mockable, and AI-friendly
+- **Scalable** — perfect for teams of any size
 
-By combining these core concepts, MAICA ensures your code remains organized, testable, and easy for teams of all levels to navigate—even when integrating AI-generated modules.
+Whether you're a senior architect or mentoring junior devs, Bricks helps you scale your app and your team without codebase chaos.
 
 ---
 
 ## 🧩 Project Structure
 
-MAICA emphasizes a clearly defined modular structure:
+Bricks emphasizes a clear, layered modular structure:
 
 - **CoreInterfaces** (abstract interfaces and protocols)
-- **Implementation Modules** (AI-generated implementations)
-- **Feature Modules** (user-facing features, local coordinators, and views)
+- **InfrastructureModules** (implementations of CoreInterfaces, often AI-generated, used across features)
+- **FeatureModules** (user-facing features, local coordinators, and views)
 - **SharedUtilities** (common, reusable helpers and extensions)
 - **App Module** (Composition root, global coordinators, and analytics integration)
 
 ```plaintext
-📦 MAICA Workspace
+📦 Bricks Workspace
 ├── 📱 YourApp (Composition root, global coordinators, analytics)
 ├── 📦 CoreInterfaces (Protocols)
-├── 📦 ImplementationModules (AI-driven concrete implementations)
+├── 📦 InfrastructureModules (Concrete implementations)
 ├── 📦 FeatureModules (Views, ViewModels, Local Coordinators)
 └── 📦 SharedUtilities (Extensions, Helpers)
 ```
 
-### How It Works
-1. **App Module**: Ties everything together; includes big coordinators and global services (like analytics) and orchestrates dependencies.
-2. **Feature Modules**: Encapsulate views, local coordinators, and business logic related to a specific feature.
-3. **CoreInterfaces**: Houses protocols and abstract definitions for networking, data storage, analytics, etc.
-4. **Implementation Modules**: Contain actual code that conforms to the protocols in **CoreInterfaces**—perfect for AI generation.
-5. **SharedUtilities**: Shared extensions, helpers, or utility code.
+### 🔧 What Are InfrastructureModules?
+InfrastructureModules are dedicated to concrete implementations of services that are defined as protocols in `CoreInterfaces`. These modules:
+
+- Perform **external tasks** like networking, persistence, analytics, etc.
+- Are often **AI-generated** (e.g., GPT or Cursor implementations for `NetworkClient`, `AuthService`, etc.)
+- Are **shared across features**, ensuring reusability and avoiding duplication
+- Are completely **decoupled** from UI and feature logic
+
+They are where "how it works" lives, while the rest of the app depends only on the "what it should do" (the interface). This makes your code easier to test, mock, and scale over time.
 
 ---
 
 ## 🤖 AI Integration
 
-1. **Define Abstractions**: Keep protocols (e.g., `HTTPClient`) in `CoreInterfaces`.
-2. **AI-Generated Implementations**: Let AI fill in the implementation modules (e.g., `URLSessionHTTPClient`).
-3. **Composition & Injection**: The App Module composes dependencies and injects them into Feature Modules, ensuring a clean separation.
+1. **Define Contracts**: Protocols go in `CoreInterfaces` (e.g., `ProfileService`, `NetworkClient`).
+2. **Generate Implementations**: Use tools like Cursor or GPT to build them into `InfrastructureModules`.
+3. **Inject & Compose**: Your App Module wires everything together by injecting services into the feature modules.
 
-AI can then focus on generating isolated, testable code without cluttering your architecture.
+AI is contained to well-defined, swappable bricks that never bleed into the rest of the structure.
 
 ---
 
-## 🧑‍💻 Intended Audience
+## 🧑‍💻 Who Is Bricks For?
 
-- **Junior Developers**: Learn how to build structured iOS apps using a clear, AI-friendly architecture.
-- **Intermediate Developers**: Scale up using AI to speed up implementation, while maintaining robust module boundaries.
-- **Senior Developers & Architects**: Maintain architectural integrity and help teams adopt modern, AI-driven workflows.
+- **Juniors**: Learn safe, well-structured Swift codebases.
+- **Mids**: Move faster with AI-assistance, without breaking the architecture.
+- **Seniors & Architects**: Enforce clean boundaries and keep the team productive at scale.
 
 ---
 
@@ -69,20 +71,20 @@ AI can then focus on generating isolated, testable code without cluttering your 
 
 1. **Clone the Repository**:
 ```bash
-git clone https://github.com/YourUserName/MAICA.git
+git clone https://github.com/YourUserName/Bricks.git
 ```
 
 2. **Open Workspace**:
-Open `MAICA.xcworkspace` in Xcode.
+Open `Bricks.xcworkspace` in Xcode.
 
 3. **Explore Modules**:
-Check out `CoreInterfaces`, `FeatureModules`, `ImplementationModules`, `SharedUtilities`, and your main app.
+Check out `CoreInterfaces`, `FeatureModules`, `InfrastructureModules`, `SharedUtilities`, and your main app.
 
 ---
 
 ## 🌟 Contributing
 
-Want to help improve MAICA?
+Want to help improve Bricks?
 
 1. **Fork** the repo.
 2. **Create a branch** (e.g., `git checkout -b feature/AmazingFeature`).
@@ -100,10 +102,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 💬 Contact & Community
 
-Join our community, share your experiences, ask questions, or suggest improvements!
+Join the conversation, share your experience, or ask questions!
 
 - GitHub Issues
 - Discussions Page
 
-Let's build clean, maintainable, AI-empowered iOS apps together—using MAICA! 🚀✨
+Build beautifully structured, AI-friendly iOS apps—one brick at a time. 🧱
 
