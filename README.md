@@ -71,7 +71,7 @@ AI is contained to well-defined, swappable bricks that never bleed into the rest
 
 1. **Clone the Repository**:
 ```bash
-git clone https://github.com/YourUserName/Bricks.git
+git clone https://github.com/stefan-nitu/Bricks.git
 ```
 
 2. **Open Workspace**:
